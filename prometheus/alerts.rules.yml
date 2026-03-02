@@ -1,0 +1,31 @@
+groups:
+  - name: application_alerts
+    rules:
+      - alert: InstanceDown
+        expr: up == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Instance {{ $labels.instance }} down"
+          description: "{{ $labels.instance }} of job {{ $labels.job }} has been down for more than 1 minute."
+
+      - alert: HighCpuUsage
+        # If CPU is idle less than 20% it means it is > 80% usage
+        expr: 100 - (avg by(instance) (rate(node_cpu_seconds_total{mode="idle"}[2m])) * 100) > 80
+        for: 2m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High CPU usage detected on {{ $labels.instance }}"
+          description: "CPU usage is above 80% (current value: {{ $value }})"
+
+      - alert: HighRequestLatency
+        # P90 latency > 500ms
+        expr: histogram_quantile(0.9, sum(rate(http_request_duration_seconds_bucket[5m])) by (le)) > 0.5
+        for: 2m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High request latency on {{ $labels.instance }}"
+          description: "P90 request latency is above 500ms (current value: {{ $value }}s)"
