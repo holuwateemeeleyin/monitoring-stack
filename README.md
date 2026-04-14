@@ -38,9 +38,9 @@ This project spins up the following services using Docker Compose:
 
 4. **Access the Services**:
    - **Sample Web App**: `http://localhost:80` (via Nginx) or `http://localhost:8080` (Direct)
-   - **Prometheus UI**: `http://localhost:9090`
+   - **Prometheus UI**: `http://localhost:9091`
    - **Alertmanager UI**: `http://localhost:9093`
-   - **Grafana UI**: `http://localhost:3000`
+   - **Grafana UI**: `http://localhost:4000`
      - Default credentials: `admin` / `admin`
 
 ## Dashboards
@@ -49,6 +49,8 @@ A unified dashboard named **Web Application Monitoring** is provisioned automati
 - **System Health**: CPU & Memory usage.
 - **Application Performance**: HTTP Request Latency (P95) and Request Rate by Status Code.
 - **Business Logic**: Total User Signups and Failures.
+
+![alt text](image.png)
 
 ## Generating Test Data
 
