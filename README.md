@@ -50,6 +50,7 @@ A unified dashboard named **Web Application Monitoring** is provisioned automati
 - **Application Performance**: HTTP Request Latency (P95) and Request Rate by Status Code.
 - **Business Logic**: Total User Signups and Failures.
 
+The picture below shows the dashboard system health
 ![alt text](image.png)
 
 ## Generating Test Data
