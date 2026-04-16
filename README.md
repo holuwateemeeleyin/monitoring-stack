@@ -50,9 +50,11 @@ A unified dashboard named **Web Application Monitoring** is provisioned automati
 - **Application Performance**: HTTP Request Latency (P95) and Request Rate by Status Code.
 - **Business Logic**: Total User Signups and Failures.
 
-The picture below shows the dashboard system health
+The picture below shows the dashboard system health:
+
 ![alt text](image.png)
 
+This dashboard is used to monitor the health and performance of an application or server in real time
 ## Generating Test Data
 
 To generate data for the business logic dashboard panels, send a few POST requests to the sample signup API:
